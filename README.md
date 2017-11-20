@@ -1,9 +1,9 @@
-# $package_name
+# ai-map
 
-[![Travis Build Status](https://img.shields.io/travis/$package_author/$package_name/master.svg)](http://travis-ci.org/$package_author/$package_name)
-[![NPM downloads](https://img.shields.io/npm/dt/$package_name.svg)](https://npmjs.org/package/$package_name)
+[![Travis Build Status](https://img.shields.io/travis/parro-it/ai-map/master.svg)](http://travis-ci.org/parro-it/ai-map)
+[![NPM downloads](https://img.shields.io/npm/dt/ai-map.svg)](https://npmjs.org/package/ai-map)
 
-> $package_description
+> Map over async iterables
 
 
 > **_This module is part of
@@ -15,9 +15,9 @@
 description of the example
 
 ```js
-import $package_var from '$package_name';
+import aiMap from 'ai-map';
 
-for (const item of {$package_var}()) {
+for (const item of {aiMap}()) {
   yield item;
 };
 ```
@@ -34,7 +34,7 @@ This will output
 With [npm](https://npmjs.org/) installed, run
 
 ```bash
-npm install --save $package_name
+npm install --save ai-map
 ```
 
 ## See Also
@@ -46,5 +46,5 @@ npm install --save $package_name
 ## License
 
 MIT Licensed
-© $current_year $package_author_name
+© 2017 Andrea Parodi
 
