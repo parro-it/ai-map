@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@std/esm": "^0.16.0",
+    "ai-concat": "^1.2.0",
     "documentation": "^5.3.3",
     "linterjs": "^1.11.0",
     "tap-colorize": "^1.2.0",

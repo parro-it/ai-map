@@ -5,6 +5,8 @@
 
 > Map over async iterables
 
+The map() function creates a new async iterable with the results of calling a
+provided function on every element in the async iterable.
 
 > **_This module is part of
 > [Async iterable fun](https://github.com/parro-it/ai-fun), a complete toolset
@@ -25,6 +27,7 @@ for (const item of {aiMap}()) {
 This will output
 
 ```
+
 ```
 
 ## API
@@ -39,12 +42,9 @@ npm install --save ai-map
 
 ## See Also
 
-- [`parro-it/ai-fun`](https://github.com/parro-it/ai-fun)
-- [`noffle/common-readme`](https://github.com/noffle/common-readme)
-
+* [`parro-it/ai-fun`](https://github.com/parro-it/ai-fun)
+* [`noffle/common-readme`](https://github.com/noffle/common-readme)
 
 ## License
 
-MIT Licensed
-© 2017 Andrea Parodi
-
+MIT Licensed © 2017 Andrea Parodi
