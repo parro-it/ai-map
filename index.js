@@ -1,4 +1,5 @@
 import isAsyncIterable from "is-async-iterable";
+import AsyncIterable from "asynciterable";
 
 function checkTransformArgument(transform) {
   if (typeof transform !== "function") {
@@ -24,18 +25,26 @@ function checkTransformArgument(transform) {
  *
  * @return {AyncIterable} An iterable that iterates over the `transform` calls results.
  */
-export default async function* map(data, transform) {
-  checkTransformArgument(transform);
+export default function map(data, transform) {
+  return new AsyncIterable(async (write, end) => {
+    checkTransformArgument(transform);
 
-  if (!isAsyncIterable(data)) {
-    throw new TypeError("data argument must be an iterable or async-iterable.");
-  }
-
-  let index = 0;
-  for await (const item of data) {
-    yield await transform(item, index, data);
-    index++;
-  }
+    if (!isAsyncIterable(data)) {
+      throw new TypeError(
+        "data argument must be an iterable or async-iterable."
+      );
+    }
+    const generator = data[Symbol.asyncIterator] || data[Symbol.iterator];
+    const iterator = generator.call(data);
+    let index = 0;
+    let item = await iterator.next();
+    while (!item.done) {
+      write(await transform(await item.value, index, data));
+      index++;
+      item = await iterator.next();
+    }
+    end();
+  });
 }
 
 /**
