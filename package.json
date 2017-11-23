@@ -49,6 +49,7 @@
     "tape-async": "^2.3.0"
   },
   "dependencies": {
-    "asynciterable": "^1.0.1"
+    "asynciterable": "^1.0.1",
+    "is-async-iterable": "^1.0.1"
   }
 }
