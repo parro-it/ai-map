@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "asynciterable": "^1.0.1",
-    "is-async-iterable": "^1.0.1"
+    "is-async-iterable": "^1.0.1",
+    "is-promise": "^2.1.0"
   }
 }

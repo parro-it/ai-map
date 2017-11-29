@@ -36,6 +36,17 @@ test("transform receive item, index, iterable", async t => {
   t.deepEqual(results, [0, 1]);
 });
 
+test("accept a promise to an iterable", async t => {
+  const results = await concat.obj(
+    map(Promise.resolve(arr), (item, index, iterable) => {
+      t.is(iterable, arr);
+      return index;
+    })
+  );
+
+  t.deepEqual(results, [0, 1]);
+});
+
 test("transform could return a promise", async t => {
   const results = await concat.obj(map(arr, v => Promise.resolve(v)));
   t.deepEqual(results, [42, 43]);

@@ -1,5 +1,6 @@
 import isAsyncIterable from "is-async-iterable";
 import AsyncIterable from "asynciterable";
+import isPromise from "is-promise";
 
 function checkTransformArgument(transform) {
   if (typeof transform !== "function") {
@@ -29,11 +30,16 @@ export default function map(data, transform) {
   return new AsyncIterable(async (write, end) => {
     checkTransformArgument(transform);
 
+    if (isPromise(data)) {
+      data = await data;
+    }
+
     if (!isAsyncIterable(data)) {
       throw new TypeError(
         "data argument must be an iterable or async-iterable."
       );
     }
+
     const generator = data[Symbol.asyncIterator] || data[Symbol.iterator];
     const iterator = generator.call(data);
     let index = 0;
